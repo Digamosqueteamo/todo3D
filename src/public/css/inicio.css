@@ -1,0 +1,141 @@
+main{
+    display: grid;
+    align-content: center;
+    grid-template-columns: minmax(60px, 400px) minmax(1000px, 2000px) minmax(60px, 400px);
+    /*grid-template-columns:minmax(300px, 1200px);*/
+    margin-top: 130px;
+}
+
+#dvSegundaColumna{
+    display: flex;
+    flex-direction: column;
+}
+
+#sctCarousel{
+    background-color: brown;
+    height: 400px;
+}
+
+#sctSeguro{
+    /**/
+    padding: 10px;
+}
+
+#pSeguro{
+    margin-left: 40px;
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.dvContainer{
+    /**/
+    justify-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 10px;
+}
+
+.dvImgCard{
+    width: 300px;
+    height: 310px;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.imgCard{
+    width: 100%;
+    height: 100%;
+    /* background-image: url(../imgs/MateGiroscopio2.jpg);
+    background-size: cover;
+    background-position: center; */
+    border-radius: 20px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.dvCard{
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 20px;
+    width: 300px;
+    height: 370px;
+    background-color: white;
+    border: 2px solid rgba(128, 128, 128, 0);
+}
+
+.dvCard:hover{
+    outline-offset: 10px;
+    border: 2px solid rgba(128, 128, 128, 0.281);
+}
+
+.dvInfoCards{
+    display: flex;
+    flex-direction: column;
+}
+
+.dvPrecioCards{
+    display: flex;
+    align-items: end;
+}
+
+.h3Nombre{
+    font-weight: 100;
+    font-size: 20px;
+}
+
+.pArs{
+    margin-bottom: 3px;
+    margin-right: 2px;
+    font-size: 18px;
+}
+
+.pPrecio{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.btnIconCarritoCard{
+    border: 0;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 10px;
+    border-radius: 50%;
+    background-color: rgba(240, 248, 255, 0.486);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.btnIconCarritoCard:hover{
+    background-color: rgba(240, 248, 255, 0.734);
+}
+
+.btnIconCarritoCard:hover .iIconCarritoCard{
+    opacity: 1;
+}
+
+.iIconCarritoCard{
+    opacity: 0.7;
+    font-size: 35px;
+}
+
+@media (width < 1150px){
+    main{
+        grid-template-columns:minmax(300px, 1550px);
+    }
+    .dvCostados{
+        display: none;
+    }
+}
+
+@media (width <380pc){
+    #pSeguro{
+        margin-left: 20px;
+    }
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/FootHead.css">
+    <link rel="stylesheet" href="./css/productox.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="./imgs/LogoDePagina.png">
+    <title><%=miRecordset[0].nombreProducto%></title>
+</head>
+<body>
+    <header>
+        <div id="dvHeaderArriba">
+            <div id="dvLogo">
+                <h1 id="h1Logo">TODO3D</h1>
+                <img src="./imgs/LogoDePagina.png" alt="Logo" id="imgLogo">
+            </div>
+            <div id="dvBuscador_Carrito">
+                <input type="text" id="inputBuscador">
+                <!-- <button id="btnLupa"><i class='bx bx-search' ></i></button> -->
+                <a href="/"><i class='bx bxs-home iIcons' ></i></a>
+                <a href="./carrito" id="aIconCarrito">
+                    <i class='bx bx-cart iIcons' id="iIconCarrito">
+                        <div id="dvNProductosCarrito" class="dvNProductosCarritoActivo">
+                            <p id="pNProductosCarrito"><%=nProductosEnCarrito%></p>
+                        </div>
+                    </i>
+                </a>
+            </div>
+            
+        </div>
+        <div>
+            <div id="dvCategorías">
+                <div id="dvCategorías2">
+                    <i class='bx bx-list-ul iCategorías'></i>
+                    <p id="pCategorías">Categorías </p>
+                    <i class='bx bx-chevron-down iCategorías'></i>
+                </div>
+                <ul id="ulCategorías">
+                    <li><a href="./todosLosProductos">Todos los productos</a></li>
+                    <li><a href="./mates">Mates</a></li>
+                    <li><a href="./floreros">Floreros</a></li>
+                    <li>Puzzles</li>
+                </ul>
+            </div>
+    
+        </div>
+    </header>
+    <main>
+        <div></div>
+        <div id="dvSegundaColumna">
+            <div id="dvContainer">
+                <div id="dvContainerProducto">
+                    <div id="dvContenedorImg">
+                        <div id="dvImg">
+                            <img src="/imgs/imgsProductos/<%=miRecordset[0].numeroImagen%>.jpg" alt="Producto" id="imgImagen">
+                        </div>
+                    </div>
+                    <div id="dvDatos">
+                        <div class="dvDatos">
+                            <p class="pTitulo">Nombre</p>
+                            <h3 id="pValor"><%=miRecordset[0].nombreProducto%></h3>
+                        </div>
+                        <hr>
+                        <div class="dvDatos">
+                            <p class="pTitulo">Precio</p>
+                            <div id="dvPrecioOEnvio">
+                                <p id="pArs">ars</p>
+                                <p id="pPrecio"><%=miRecordset[0].precio%></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="dvContainerOpciones">
+                    <div id="dvEnvio">
+                        <h3>Envío:</h3>
+                        <div id="dvPrecioOEnvio">
+                            <p id="pArs">ars</p>
+                            <p id="pEnvio">1000</p>
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    <div id="dvCantidad">
+                        <h3>Cantidad:</h3>
+                        <div id="dvCambiarCantidad">
+                            <button id="btnCambiarCantidadMenos" class="btnCambiarCantidad disable">-</button>
+                            <p id="pCambiarCantidad">1</p>
+                            <button id="btnCambiarCantidadMas" class="btnCambiarCantidad">+</button>
+                        </div>
+                    </div>
+
+                    <button id="btnComprar" >COMPRAR</button>
+                    <button class="btnAgregarAlCarrito" id="<%=miRecordset[0].id%>">AGREGAR AL CARRITO</button>
+                </div>
+            </div>
+        </div>
+        <div></div>
+    </main>
+
+    <script src="./js/productox.js"></script>
+</body>
+</html>

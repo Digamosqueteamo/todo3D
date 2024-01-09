@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Rethink+Sans&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Rethink Sans', sans-serif;
+}
+
+
+header{
+    background-color: rgb(28, 28, 28);
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+}
+
+#dvHeaderArriba{
+    display: flex;
+    align-items: center;
+}
+
+#dvLogo{
+    display: flex;
+    margin: 10px 10px 10px 100px;
+    align-items: center;
+}
+
+#imgLogo{
+    width: 50px;
+    height: 50px;
+}
+
+#h1Logo{
+    font-size: 40px;
+    color: white;
+}
+
+#dvBuscador_Carrito{
+    display: flex;
+    align-items: center;
+}
+
+#inputBuscador{
+    position: relative;
+    height: 40px;
+    width: 1000px;
+    border-radius: 30px;
+    margin-left: 100px;
+    padding-left: 20px;
+    font-size: 25px;
+    border: 0px;
+}
+
+#inputBuscador:focus{
+    outline-width: 0px;
+}
+
+/* #btnLupa{
+    background-color: transparent;
+    border: 0;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+}
+
+#btnLupa i{
+    font-size: 30px;
+} */
+
+#iIconCarrito{
+    position: relative;
+}
+
+.dvNProductosCarritoNoActivo{
+    display: none;
+}
+
+.dvNProductosCarritoActivo{
+    display: flex;
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    justify-content: center;
+    align-items: center;
+    right: 0;
+    bottom: 0;
+}
+
+#pNProductosCarrito{
+    color: black;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.iIcons{
+    color: white;
+    font-size: 50px;
+    margin-left: 100px;
+}
+
+#dvCategorías{
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    height: 30px;
+    width: 220px;
+    border-radius: 20px;
+    margin-left: 200px;
+    margin-top: 10px;
+    border: 0px;
+}
+
+#dvCategorías:hover{
+    height: 200px;
+    border: 1px solid rgb(94, 94, 94);
+}
+
+#dvCategorías:hover #ulCategorías{
+    display: block;
+}
+
+#ulCategorías{
+    display: none;
+    list-style: none;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+#dvCategorías2{
+    display: flex;
+    align-items: center;
+}
+
+#dvCategorías2:hover{
+    cursor: pointer;
+}
+
+#pCategorías{
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.iCategorías{
+    font-size: 30px;
+    margin-left: 15px;
+}
+
+@media (width <1760px){
+    
+    #inputBuscador{
+        width: 700px;
+    }
+
+    .iIcons{
+        margin-left: 50px;
+    }
+
+    #inputBuscador{
+        border-radius: 30px;
+        margin-left: 50px;
+    }
+}
+
+@media (width < 1300px){
+    #dvHeaderArriba{
+        align-items: start;
+        flex-direction: column;
+    }
+
+    #dvLogo{
+        display: flex;
+        margin: 10px 10px 10px 50px;
+        align-items: center;
+    }
+
+    header{
+        height: 200px;
+    }
+
+    #dvCategorías{
+        margin-left: 50px;
+    }
+}
+
+@media (width <980px){
+    #inputBuscador{
+        width: 400px;
+    }
+
+   
+}
+
+@media (width < 690px){
+    #inputBuscador{
+        width: 300px;
+    }
+
+    .iIcons{
+        margin-left: 20px;
+    }
+}
+
+@media (width < 520px){
+    #dvLogo{
+        margin: 10px 10px 10px 20px;
+    }
+
+    #dvCategorías{
+        margin-left: 20px;
+    }
+
+    #inputBuscador{
+        margin-left: 20px;
+        height: 30px;
+        font-size: 18px;
+    }
+
+    .iIcons{
+        font-size: 35px;
+    }
+
+    .dvNProductosCarritoActivo{
+        width: 18px;
+        height: 18px;
+    }
+
+    #pNProductosCarrito{
+        font-size: 14px;
+    }
+}
+
+@media (width < 460px){
+
+    #inputBuscador{
+        width: 200px;
+        height: 25px;
+        font-size: 15px;
+    }
+
+   
+}

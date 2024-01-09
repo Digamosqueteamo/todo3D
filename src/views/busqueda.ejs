@@ -1,0 +1,42 @@
+
+    <div class="dvCostados">
+
+    </div>
+    <div id="dvSegundaColumna">
+        <section id="sctCarousel">
+        </section>
+        <section id="sctSeguro">
+            <p id="pSeguro">Seguro que te gusta</p>
+            <div class="dvContainer">
+
+                <%miRecordset.forEach(producto => { %>
+
+                <div class="dvCard">
+                    <a>
+                        <div class="dvImgCard">
+                            <img src="./imgs/imgsProductos/<%=producto.numeroImagen%>.jpg" alt="Producto" class="imgCard">
+                            <button class="btnIconCarritoCard" id="<%=producto.id%>">
+                                <i class='bx bx-cart-add iIconCarritoCard'></i>
+                            </button>
+                            
+                        </div>
+                        <div class="dvInfoCards">
+                            <h3 class="h3Nombre" id="datos"><%=producto.nombreProducto%></h3>
+                            <div class="dvPrecioCards">
+                                <p class="pArs">ars</p>
+                                <p class="pPrecio"><%=producto.precio%></p>
+                            </div>
+                            
+                        </div>
+                    </a>
+                </div>
+
+                <%});%>
+                
+            </div>
+            
+        </section>
+    </div>
+    <div>
+
+    </div>

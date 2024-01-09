@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/FootHead.css">
+    <link rel="stylesheet" href="./css/carrito.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="./imgs/LogoDePagina.png">
+    <title>carrito</title>
+</head>
+<body>
+    <header>
+        <div id="dvHeaderArriba">
+            <div id="dvLogo">
+                <h1 id="h1Logo">TODO3D</h1>
+                <img src="./imgs/LogoDePagina.png" alt="Logo" id="imgLogo">
+            </div>
+            <div id="dvBuscador_Carrito">
+                <input type="text" id="inputBuscador">
+                <!-- <button id="btnLupa"><i class='bx bx-search' ></i></button> -->
+                <a href="/"><i class='bx bxs-home iIcons' ></i></a>
+                <a href="/carrito" id="aIconCarrito">
+                    <i class='bx bx-cart iIcons' id="iIconCarrito">
+                        <div id="dvNProductosCarrito" class="dvNProductosCarritoNoActivo">
+                            <p id="pNProductosCarrito"></p>
+                        </div>
+                    </i>
+                </a>
+            </div> 
+        </div>
+        <div>
+            <div id="dvCategorías">
+                <div id="dvCategorías2">
+                    <i class='bx bx-list-ul iCategorías'></i>
+                    <p id="pCategorías">Categorías </p>
+                    <i class='bx bx-chevron-down iCategorías'></i>
+                </div>
+                <ul id="ulCategorías">
+                    <li><a href="">Todos los productos</a></li>
+                    <li>Mates</li>
+                    <li>Floreros</li>
+                    <li>Puzzles</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div></div>
+        <div id="dvSegundaColumna">
+            <div id="dvContainer">
+                <div id="dvContainerProductos">
+                    <%if(status === 0){%>
+                        <button id="btnVaciarCarrito">VACIAR CARRITO</button>
+                    <%}%>
+                    <%if(status === 0){%>
+                        <%miRecordset.forEach(producto => {%>
+                            <div class="dvFila">
+                                <div class="dvImg">
+                                    <img src="/imgs/imgsProductos/<%=producto.numeroImagen%>.jpg" alt="Producto" class="imgImagen">
+                                </div>
+                                <div class="dvDatos">
+                                    <p class="pTitulo">Nombre</p>
+                                    <h3 class="pValor"><%=producto.nombreProducto%></h3>
+                                </div>
+                                <div class="dvDatos">
+                                    <p class="pTitulo">Cantidad</p>
+                                    <p class="pValor"><%=producto.cantidad%></p>
+                                </div>
+                                <div class="dvDatos">
+                                    <p class="pTitulo">Precio</p>
+                                    <p class="pValor"><%=producto.precio%></p>
+                                </div>
+                                <div class="dvDatos">
+                                    <p class="pTitulo">Subtotal</p>
+                                    <p class="pValor"><%=producto.cantidad * producto.precio%></p>
+                                </div>
+                                <button class="btnEliminar" id="<%=producto.id%>">
+                                    <i class='bx bxs-trash-alt iEliminar'></i>
+                                </button>
+                            </div>
+                        <%});%>
+                    <%} else{%>
+                        <p id="pCarritoVacio">El carrito está vacío☹</p>
+                    <%}%>
+
+                </div>
+                <div id="dvContainerOpciones">
+                    <h3>Carrito de compra</h3>
+                    <%  let precioTotal = 0;
+                        let cantidadProductos = 0;
+                        let costoEnvio = 0;
+                        if(status===0){
+                            miRecordset.forEach(producto =>{
+                                precioTotal += producto.precio * producto.cantidad;
+                                cantidadProductos += producto.cantidad;
+                            })
+                            if(cantidadProductos <= 5){
+                                costoEnvio = 1000;
+                            }else if(cantidadProductos <= 10){
+                                costoEnvio = 2000;
+                            }else{
+                                costoEnvio = 3000;
+                            }
+                        }
+
+                    %>
+                    <div>
+                        <div class="dvTotales">
+                            <p class="pSubCost">Subtotal:</p>
+                            <p><%=precioTotal%></p>
+                        </div>
+                        <div class="dvTotales">
+                            <p class="pSubCost">Cantidad de productos:</p>
+                            <p><%=cantidadProductos%></p>
+                        </div>
+                        <div class="dvTotales" id="dvCosto">
+                            <p class="pSubCost">Costos de envío:</p>
+                            <p><%=costoEnvio%></p>
+                        </div>
+                        <div class="dvTotales">
+                            <p id="pTotal">Total:</p>
+                            <p id="pTOTAL"><%=precioTotal+costoEnvio%></p>
+                        </div>
+                    </div>
+                    <%if(status === 0){%>
+                        <button id="btnComprarEnable" >COMPRAR</button>
+                    <%} else{%>
+                        <button id="btnComprarDisable">COMPRAR</button>
+                    <%}%>
+                    
+
+                </div>
+            </div>
+        </div>
+        <div></div>
+    </main>
+    <script src="./js/carrito.js"></script>
+</body>
+</html>
