@@ -112,6 +112,7 @@ main{
     border: 0;
     font-size: 20px;
     cursor: pointer;
+    background-color: white;
 }
 
 .disable{

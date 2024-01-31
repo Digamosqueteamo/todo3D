@@ -3,6 +3,7 @@ const btnMas = document.getElementById('btnCambiarCantidadMas');
 const pEnvio = document.getElementById('pEnvio');
 const btnAgregarAlCarrito = document.getElementsByClassName('btnAgregarAlCarrito');
 const pNProductosAgregados = document.getElementById('pNProductosCarrito');
+const btnComprar = document.getElementById('btnComprar').addEventListener('click', comprar);
 
 //agregamos el evento después porque sino perdemos las propiedades del elemento
 btnMenos.addEventListener('click', menos);
@@ -61,4 +62,17 @@ function agregarAlCarrito(e){
         pNProductosAgregados.textContent = data;
     })
     .catch(error => console.error('Error al agregar al carrito:', error));
+}
+
+function comprar(){
+    fetch(`/comprarIndividual`,{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({cantidad: pCantidad.textContent})
+    }).then(response => response.text())
+    .then(data => {
+    })
+    .catch(error => console.error('Error al comprar:', error));
 }

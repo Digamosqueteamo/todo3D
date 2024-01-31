@@ -64,6 +64,14 @@ main{
     border-radius: 20px;
 }
 
+.dvContainerDatos{
+    display: flex;
+    /*display: none;*/
+    justify-content: space-between;
+    width: 450px;
+    margin: 0 20px;
+}
+
 .dvDatos{
     display: flex;
     flex-direction: column;
@@ -150,6 +158,12 @@ main{
     font-size: 15px;
 }
 
+@media (width < 1300px){
+    main{
+        margin-top: 200px;
+    }
+}
+
 @media (width < 1000px){
 
     #dvContainer{
@@ -160,12 +174,35 @@ main{
     }
 }
 
-@media (width < 800px){
+@media (width < 900px){
 
     main{
+        grid-template-columns: minmax(400px, 1200px);
+    }
+}
+
+@media (width < 750px){
+    .dvContainerDatos{
         display: grid;
-        align-content: center;
-        grid-template-columns: minmax(800px, 1200px);
-        margin-top: 130px;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        width: 280px;
+    }
+}
+
+@media (width < 550px){
+    .dvContainerDatos{
+        width: 200px;
+    }
+}
+
+@media (width < 460px){
+    .dvContainerDatos{
+        width: 150px;
+    }
+
+    .dvImg{
+        width: 90px;
+        height: 100px;
     }
 }

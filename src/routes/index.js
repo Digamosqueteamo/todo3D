@@ -1,12 +1,14 @@
 import {Router} from 'express';
 import express from 'express';
 import sql from 'mssql';
+import whatsapp from '../lib/whatsapp.js';
 
 
 const router= Router();
 let ObjProductosAgregados = [];
 let nArticulos = 0;
 let ultimaCategoria = 'Inicio';
+let idUltimoProductoVisto;
 
 //settings
 router.use(express.json()); //te permite acceder a los bodies de las request con datos en formato JSON
@@ -63,7 +65,7 @@ router.post('/agregarAlCarrito', (req, res) => {
 });
 
 router.delete('/eliminarDelCarrito', (req, res) => {
-  console.log(ObjProductosAgregados);
+  //console.log(ObjProductosAgregados);
   const id = req.body.id;
   ObjProductosAgregados.find(producto => producto.id === id).cantidad--;
   ObjProductosAgregados.forEach(producto => {
@@ -111,6 +113,7 @@ router.get('/carrito', async (req, res) =>{
       producto.cantidad = ObjProductosAgregados[i].cantidad;
       i++;
     })
+    //console.log(miRecordset);
     res.render('carrito', {miRecordset: miRecordset, status: 0});
 }
 catch(e){res.render('carrito', {status: 1});}
@@ -193,6 +196,80 @@ router.get('/mostrar', async (req, res) => {
   const myQuery = `SELECT * FROM Productos WHERE id = '${id}'`;
   miRecordset=(await sql.query(myQuery)).recordset;
   res.render('productox', {miRecordset: miRecordset, nProductosEnCarrito: nArticulos});
+});
+
+router.get('/obtenerProductos', async (req, res) =>{
+  /*const telefono = '+541123602675';
+  const chatId = telefono.substring(1) + "@c.us";
+  const detallesNumero = await whatsapp.getNumberId(chatId);*/
+  try{
+    let arrayIds= [];
+    let i = 0;
+    ObjProductosAgregados.sort((a,b) => {
+      if(a.id < b.id){
+        return -1;
+      } else if(a.id > b.id){
+        return 1;
+      }
+      return 0;
+    });
+    ObjProductosAgregados.forEach(producto => {
+      arrayIds[i] = producto.id;
+      i++;
+    });
+    i = 0;
+    await sql.connect(config);
+    let myQuery = `SELECT * FROM PRODUCTOS where id in (${arrayIds})`;
+    let miRecordset = (await sql.query(myQuery)).recordset;
+
+    miRecordset.forEach(producto => {
+      producto.cantidad = ObjProductosAgregados[i].cantidad;
+      i++;
+    })
+    //console.log(miRecordset);
+    res.json(miRecordset);
+  }
+  catch(e){res.send(`error: ${e}`);}
+});
+
+
+router.post('/pasarIdUltimoProductoVisto', async (req, res) =>{
+  idUltimoProductoVisto = req.body.idUltimoProductoVisto;
+});
+
+
+router.post('/comprar', async (req, res) => {
+  const mensaje = req.body.mensaje;
+  const telefono = '+541123602675';
+  const chatId = telefono.substring(1) + "@c.us";
+  whatsapp.sendMessage(chatId, mensaje);
+});
+
+router.post('/comprarIndividual', async (req, res) => {
+  let miRecordset;
+  await sql.connect(config);
+  const myQuery = `SELECT * FROM Productos WHERE id = '${idUltimoProductoVisto}'`;
+  miRecordset=(await sql.query(myQuery)).recordset;
+
+  const cantidad = req.body.cantidad;
+
+  let costoEnvio;
+
+  if(cantidad <= 5){
+    costoEnvio= 1000;
+  } else if(cantidad <= 10){
+    costoEnvio= 2000;
+  } else{
+    costoEnvio= 3000;
+  }
+
+  let mensaje=
+  `Hola Todo3D!!\nDesearía pedirles lo siguiente:\n${cantidad} x *${miRecordset[0].nombreProducto}* (${miRecordset[0].categoria}) => ${miRecordset[0].precio}
+  \n*Cantidad de productos:* ${cantidad}\n*Subtotal:* ${cantidad * miRecordset[0].precio}\n*Costo del envío:* ${costoEnvio}\n*Total:* ${cantidad * miRecordset[0].precio + costoEnvio}`;
+
+  const telefono = '+541123602675';
+  const chatId = telefono.substring(1) + "@c.us";
+  whatsapp.sendMessage(chatId, mensaje);
 });
 
 export default router;

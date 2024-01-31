@@ -14,6 +14,7 @@ main{
 #sctCarousel{
     background-color: brown;
     height: 400px;
+    margin-top: 30px;
 }
 
 #sctSeguro{
@@ -125,9 +126,16 @@ main{
     font-size: 35px;
 }
 
+@media (width < 1300px){
+    main{
+        margin-top: 200px;
+    }
+}
+
 @media (width < 1150px){
     main{
         grid-template-columns:minmax(300px, 1550px);
+        margin-top: 200px;
     }
     .dvCostados{
         display: none;

@@ -4,12 +4,15 @@ import {fileURLToPath} from 'url';
 import misRutas from './routes/index.js';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
+import whatsapp from './lib/whatsapp.js';
 
 //variables, constantes y objetos
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3000;
 const __dirname =dirname(fileURLToPath(import.meta.url));
 
+//whatsapp
+whatsapp.initialize();
 
 //settings
 app.use(cookieParser());

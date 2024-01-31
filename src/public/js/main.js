@@ -6,6 +6,8 @@ const main = document.getElementById('main');
 
 const pNProductosAgregados = document.getElementById('pNProductosCarrito');
 
+let idUltimoProductoVisto;
+
 cards.forEach(card => {
   card.addEventListener('click', mostrarProducto)
 })
@@ -52,5 +54,20 @@ function agregarProductosCarrito(e){
 
 function mostrarProducto(e){
   const id= e.currentTarget.id;
+  idUltimoProductoVisto =id;
+  fetch('/pasarIdUltimoProductoVisto', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({idUltimoProductoVisto})
+  })
+  .then(response => response.json())
+  .then(data => {
+      
+  })
+  .catch(error => {
+      console.error('Error en la solicitud:', error);
+  });
   window.location.href = `/mostrar?q=${encodeURIComponent(id)}`;
 }

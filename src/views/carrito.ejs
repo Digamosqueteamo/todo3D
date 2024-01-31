@@ -14,7 +14,7 @@
         <div id="dvHeaderArriba">
             <div id="dvLogo">
                 <h1 id="h1Logo">TODO3D</h1>
-                <img src="./imgs/LogoDePagina.png" alt="Logo" id="imgLogo">
+                <img src="./imgs/Logo.png" alt="Logo" id="imgLogo">
             </div>
             <div id="dvBuscador_Carrito">
                 <input type="text" id="inputBuscador">
@@ -59,21 +59,23 @@
                                 <div class="dvImg">
                                     <img src="/imgs/imgsProductos/<%=producto.numeroImagen%>.jpg" alt="Producto" class="imgImagen">
                                 </div>
-                                <div class="dvDatos">
-                                    <p class="pTitulo">Nombre</p>
-                                    <h3 class="pValor"><%=producto.nombreProducto%></h3>
-                                </div>
-                                <div class="dvDatos">
-                                    <p class="pTitulo">Cantidad</p>
-                                    <p class="pValor"><%=producto.cantidad%></p>
-                                </div>
-                                <div class="dvDatos">
-                                    <p class="pTitulo">Precio</p>
-                                    <p class="pValor"><%=producto.precio%></p>
-                                </div>
-                                <div class="dvDatos">
-                                    <p class="pTitulo">Subtotal</p>
-                                    <p class="pValor"><%=producto.cantidad * producto.precio%></p>
+                                <div class="dvContainerDatos">
+                                    <div class="dvDatos">
+                                        <p class="pTitulo">Nombre</p>
+                                        <h3 class="pValor"><%=producto.nombreProducto%></h3>
+                                    </div>
+                                    <div class="dvDatos">
+                                        <p class="pTitulo">Cantidad</p>
+                                        <p class="pValor"><%=producto.cantidad%></p>
+                                    </div>
+                                    <div class="dvDatos">
+                                        <p class="pTitulo">Precio</p>
+                                        <p class="pValor"><%=producto.precio%></p>
+                                    </div>
+                                    <div class="dvDatos">
+                                        <p class="pTitulo">Subtotal</p>
+                                        <p class="pValor"><%=producto.cantidad * producto.precio%></p>
+                                    </div>
                                 </div>
                                 <button class="btnEliminar" id="<%=producto.id%>">
                                     <i class='bx bxs-trash-alt iEliminar'></i>
@@ -103,7 +105,6 @@
                                 costoEnvio = 3000;
                             }
                         }
-
                     %>
                     <div>
                         <div class="dvTotales">
@@ -136,5 +137,8 @@
         <div></div>
     </main>
     <script src="./js/carrito.js"></script>
+    <script>
+        
+    </script>
 </body>
 </html>
