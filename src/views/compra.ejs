@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/FootHead.css">
+    <link rel="stylesheet" href="./css/compra.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Finalizar compra</title>
+    <link rel="icon" href="./imgs/Logo.png">
+</head>
+<body>
+    <header>
+        <div id="dvHeaderArriba">
+            <div id="dvLogo">
+                <h1 id="h1Logo">TODO3D</h1>
+                <img src="./imgs/Logo.png" alt="Logo" id="imgLogo">
+            </div>
+            <div id="dvBuscador_Carrito">
+                <input type="text" id="inputBuscador">
+                <!-- <button id="btnLupa"><i class='bx bx-search' ></i></button> -->
+                <a href="/"><i class='bx bxs-home iIcons' ></i></a>
+                <a href="./carrito" id="aIconCarrito">
+                    <i class='bx bx-cart iIcons' id="iIconCarrito">
+                        <!-- <div id="dvNProductosCarrito" class="dvNProductosCarritoNoActivo">
+                            <p id="pNProductosCarrito"></p>
+                        </div> -->
+                        <div id="dvNProductosCarrito" class="dvNProductosCarritoActivo">
+                            <p id="pNProductosCarrito"><%=nProductosEnCarrito%></p>
+                        </div>
+                    </i>
+                </a>
+            </div>
+            
+        </div>
+        <div>
+            <div id="dvCategorías">
+                <div id="dvCategorías2">
+                    <i class='bx bx-list-ul iCategorías'></i>
+                    <p id="pCategorías">Categorías </p>
+                    <i class='bx bx-chevron-down iCategorías'></i>
+                </div>
+                <ul id="ulCategorías">
+                    <li><a href="./todosLosProductos">Todos los productos</a></li>
+                    <li><a href="./mates">Mates</a></li>
+                    <li><a href="./floreros">Floreros</a></li>
+                    <li>Puzzles</li>
+                </ul>
+            </div>
+    
+        </div>
+    </header>
+    <main>
+        <div id="dvIzquierda" class="dvCostados">
+            <div id="dvContentIzquierda" class="dvContent">
+                <h3 class="h3Metodo">MÉTODO DE ENVÍO</h3>
+                <div id="dvOpcionesIzquierda">
+                    <div class="dvOpcionIzquierda" id="dvOpcionRetiro">
+                        <div class="dvSeleccion">
+                            <input type="radio" name="pedo" class="inpRadio" id="inpRadioRetiro">
+                        </div>
+                        <div id="dvRetiro">
+                            <p class="pOpciones">Entrega en la dirección del vendedor:</p>
+                            <div class="dvDireccion">
+                                <i class='bx bx-map' ></i>
+                                <p>Saraza 4268</p>
+                                <button id="btnCopiar"><i class='bx bx-clipboard'></i></button>
+                                <div id="dvCopiado">
+                                    <p>Copiado</p>
+                                    <i class='bx bx-check' ></i>
+                                </div>
+                            </div>
+                            <p>Gratis</p>
+                        </div>
+                    </div>
+                    <div class="dvOpcionIzquierda" id="dvOpcionEnvio">
+                        <div class="dvSeleccion">
+                            <input type="radio" name="pedo" class="inpRadio" id="inpRadioEnvio">
+                        </div>
+                        <div id="dvEnvio">
+                            <p class="pOpciones">Envío a su direccion:</p>
+                            <input type="text" id="inpDireccion" placeholder="Indique su direccion">
+                            <div class="dvCostoEnvio">
+                                <p>Costo:</p>
+                                <p class="pCostoEnvio"><%=costoEnvio%></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dvOpcionIzquierda" id="dvOpcionEncuentro">
+                        <div class="dvSeleccion">
+                            <input type="radio" name="pedo" class="inpRadio" id="inpRadioEncuentro">
+                        </div>
+                        <div id="dvEncuentro">
+                            <p class="pOpciones">Acordar punto de encuentro con el vendedor:</p>
+                            <div class="dvCostoEnvio">
+                                <p>Costo:</p>
+                                <p class="pCostoEnvio"><%=costoEnvio%></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="dvContinuarIzquierda">
+                    <button id="btnContinuarIzquierda" class="btnEnabledIzquierda" >Continuar</button>
+                </div>
+                
+            </div>
+        </div>
+        <div id="dvDerecha" class="dvCostados">
+            <div id="dvContentDerecha" class="dvContent">
+                <h3 class="h3Metodo">MÉTODO DE PAGO</h3>
+                <div id="dvOpcionesDerecha">
+                    <div id="dvMercadoPago" class="dvOpcionPago">
+                        <input type="radio" name="cacona" class="inpRadioMetodo" id="inpRadioMercadoPago" disabled>
+                        <div class="dvFotoMetodo">
+                            <img src="./imgs/Mercado-Pago-Logo.png" alt="Logo Mercado Pago"class="imgMetodo">
+                            <p class="pMetodo">Mercado Pago</p>
+                        </div>
+                    </div>
+                    <div id="dvEfectivo" class="dvOpcionPago">
+                        <input type="radio" name="cacona" class="inpRadioMetodo" id="inpRadioEfectivo" disabled>
+                        <div class="dvFotoMetodo">
+                            <img src="./imgs/Efectivo.png" alt="Efectivo" class="imgMetodo">
+                            <p class="pMetodo">Efectivo</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="dvContinuarAtrasDerecha">
+                    <button id="btnAtrasDerecha" class="btnAtrasDisabledDerecha" disabled>Atrás</button>
+                    <button id="btnContinuarDerecha" class="btnContinuarDisabledDerecha" disabled>Madar WhatsApp<i class='bx bxl-whatsapp' ></i></button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        const esIndividual = '<%=esIndividual%>';
+        const cantidadProductos = '<%=cantidadProductos%>' || 'caca';
+        const nombreUsuario = '<%=nombreUsuario%>';
+    </script>
+    <script src="./js/compra.js"></script>
+</body>
+</html>

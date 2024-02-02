@@ -33,7 +33,7 @@ router.get('/', async (req, res) => {
       await sql.connect(config);
       const myQuery = "SELECT top 3 * FROM Productos ORDER BY NEWID()";
       miRecordset=(await sql.query(myQuery)).recordset;
-      res.render('index', {miRecordset: miRecordset, nProductosEnCarrito: nArticulos});
+      res.render('index', {miRecordset: miRecordset, nProductosEnCarrito: nArticulos, esCategoria: 0});
     }catch{}
 });
 
@@ -113,8 +113,9 @@ router.get('/carrito', async (req, res) =>{
       producto.cantidad = ObjProductosAgregados[i].cantidad;
       i++;
     })
-    //console.log(miRecordset);
-    res.render('carrito', {miRecordset: miRecordset, status: 0});
+    //console.log(miRecordset)
+
+    res.render('carrito', {miRecordset: miRecordset, status: 0, nombreUsuario: req.cookies.nombreUsuario || ''});
 }
 catch(e){res.render('carrito', {status: 1});}
 });
@@ -126,7 +127,7 @@ router.get('/todosLosProductos', async (req, res) => {
       await sql.connect(config);
       const myQuery = "SELECT * FROM Productos";
       miRecordset=(await sql.query(myQuery)).recordset;
-      res.render('index', {miRecordset: miRecordset, nProductosEnCarrito: nArticulos});
+      res.render('index', {miRecordset: miRecordset, nProductosEnCarrito: nArticulos, esCategoria: 2});
   }catch{}
 });
 
@@ -137,7 +138,7 @@ router.get('/mates', async (req, res) => {
       await sql.connect(config);
       const myQuery = "SELECT * FROM Productos WHERE categoria = 'Mates'";
       miRecordset=(await sql.query(myQuery)).recordset;
-      res.render('index', {miRecordset: miRecordset, nProductosEnCarrito: nArticulos});
+      res.render('index', {miRecordset: miRecordset, nProductosEnCarrito: nArticulos, esCategoria: 1});
   }catch{}
 });
 
@@ -148,7 +149,7 @@ router.get('/floreros', async (req, res) => {
       await sql.connect(config);
       const myQuery = "SELECT * FROM Productos WHERE categoria = 'Floreros'";
       miRecordset=(await sql.query(myQuery)).recordset;
-      res.render('index', {miRecordset: miRecordset, nProductosEnCarrito: nArticulos});
+      res.render('index', {miRecordset: miRecordset, nProductosEnCarrito: nArticulos, esCategoria: 1});
   }catch{}
 });
 
@@ -195,13 +196,10 @@ router.get('/mostrar', async (req, res) => {
   await sql.connect(config);
   const myQuery = `SELECT * FROM Productos WHERE id = '${id}'`;
   miRecordset=(await sql.query(myQuery)).recordset;
-  res.render('productox', {miRecordset: miRecordset, nProductosEnCarrito: nArticulos});
+  res.render('productox', {miRecordset: miRecordset, nProductosEnCarrito: nArticulos, nombreUsuario: req.cookies.nombreUsuario || ''});
 });
 
 router.get('/obtenerProductos', async (req, res) =>{
-  /*const telefono = '+541123602675';
-  const chatId = telefono.substring(1) + "@c.us";
-  const detallesNumero = await whatsapp.getNumberId(chatId);*/
   try{
     let arrayIds= [];
     let i = 0;
@@ -232,11 +230,9 @@ router.get('/obtenerProductos', async (req, res) =>{
   catch(e){res.send(`error: ${e}`);}
 });
 
-
 router.post('/pasarIdUltimoProductoVisto', async (req, res) =>{
   idUltimoProductoVisto = req.body.idUltimoProductoVisto;
 });
-
 
 router.post('/comprar', async (req, res) => {
   const mensaje = req.body.mensaje;
@@ -245,7 +241,7 @@ router.post('/comprar', async (req, res) => {
   whatsapp.sendMessage(chatId, mensaje);
 });
 
-router.post('/comprarIndividual', async (req, res) => {
+/*router.post('/comprarIndividual', async (req, res) => {
   let miRecordset;
   await sql.connect(config);
   const myQuery = `SELECT * FROM Productos WHERE id = '${idUltimoProductoVisto}'`;
@@ -270,6 +266,51 @@ router.post('/comprarIndividual', async (req, res) => {
   const telefono = '+541123602675';
   const chatId = telefono.substring(1) + "@c.us";
   whatsapp.sendMessage(chatId, mensaje);
+});*/
+
+router.get('/compra', async (req, res) =>{
+  let costoEnvio;
+
+  if(nArticulos <= 5){
+    costoEnvio = 1000;
+  }else if(nArticulos <= 10){
+    costoEnvio = 2000;
+  }else{
+    costoEnvio = 3000;
+  }
+
+  res.render('compra', {nProductosEnCarrito: nArticulos, costoEnvio: costoEnvio, esIndividual: 'no', cantidadProductos: nArticulos, nombreUsuario: req.cookies.nombreUsuario});
+});
+
+router.get('/compraIndividual', async (req, res) =>{
+
+  let cantidadProductos = req.query.q;
+  let costoEnvio;
+  if(cantidadProductos <= 5){
+    costoEnvio = 1000;
+  }else if(cantidadProductos <= 10){
+    costoEnvio = 2000;
+  }else{
+    costoEnvio = 3000;
+  }
+
+  res.render('compra', {nProductosEnCarrito: nArticulos, costoEnvio: costoEnvio, esIndividual: 'si', cantidadProductos: cantidadProductos, nombreUsuario: req.cookies.nombreUsuario});
+});
+
+router.get('/pasarUltimoProductoVisto', async (req, res) =>{
+  let miRecordset;
+  await sql.connect(config);
+  const myQuery = `SELECT * FROM Productos WHERE id = '${idUltimoProductoVisto}'`;
+  miRecordset=(await sql.query(myQuery)).recordset;
+  res.json(miRecordset);
+});
+
+router.post('/pasarNombreAlBack', (req, res) =>{
+  res.cookie('nombreUsuario', req.body.nombreUsuario, {
+    maxAge:43200000
+  });
+  res.sendStatus(200);
+  //si no vas a devolver nada, siempre tenés que mandar un código de status
 });
 
 export default router;

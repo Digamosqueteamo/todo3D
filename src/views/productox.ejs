@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./css/FootHead.css">
     <link rel="stylesheet" href="./css/productox.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="icon" href="./imgs/LogoDePagina.png">
+    <link rel="icon" href="./imgs/Logo.png">
     <title><%=miRecordset[0].nombreProducto%></title>
 </head>
 <body>
@@ -89,6 +89,11 @@
                             <p id="pCambiarCantidad">1</p>
                             <button id="btnCambiarCantidadMas" class="btnCambiarCantidad">+</button>
                         </div>
+                    </div>
+
+                    <div id="dvNombre">
+                        <p id="pNombre">Su nombre:</p>
+                        <input type="text" id="inpNombre" value="<%=nombreUsuario%>">
                     </div>
 
                     <button id="btnComprar" >COMPRAR</button>

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./css/FootHead.css">
     <link rel="stylesheet" href="./css/inicio.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="icon" href="./imgs/LogoDePagina.png">
+    <link rel="icon" href="./imgs/Logo.png">
     <title>Todo3D</title>
 </head>
 <body>
@@ -60,7 +60,13 @@
             <section id="sctCarousel">
             </section>
             <section id="sctSeguro">
-                <p id="pSeguro">Seguro que te gusta</p>
+                <%if(esCategoria === 1){%>
+                    <p id="pSeguro"><%=miRecordset[0].categoria%></p>
+                <%}else if(esCategoria === 0){%>
+                    <p id="pSeguro">Seguro que te gusta</p>
+                <%}else{%>
+                    <p id="pSeguro">Todos los productos</p>
+                <%}%>
                 <div class="dvContainer">
 
                     <%miRecordset.forEach(producto => { %>

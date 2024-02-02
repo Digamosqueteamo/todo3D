@@ -1,6 +1,9 @@
 let botonesEliminar = document.querySelectorAll('.btnEliminar');
 const btnVaciarCarrito = document.getElementById('btnVaciarCarrito').addEventListener('click', vaciarCarrito) || 'pedo';
 const btnComprar = document.getElementById('btnComprarEnable').addEventListener('click', comprar) || 'pene';
+const inpNombre = document.getElementById('inpNombre');
+
+inpNombre.addEventListener('keyup', pasarNombreAlBack);
 
 botonesEliminar.forEach(boton => {
     boton.addEventListener('click', eliminarProductosCarrito)
@@ -32,58 +35,22 @@ function eliminarProductosCarrito(e){
     .catch(error => console.error('Error al eliminar del carrito:', error));
 }
 
-async function comprar(){
-    let elRecordset;
-    await fetch('/obtenerProductos')
-    .then(response => response.json())
-    .then(data => {
-        elRecordset=data;
-    })
-    .catch(error => {
-        console.error('Error en la solicitud:', error);
-    });
-    console.log(elRecordset);
-
-    let pedido ='';
-    let subtotal = 0;
-    let precioFinal = 0;
-    let cantidadProductos = 0;
-    let costoEnvio = 0;
-
-    elRecordset.forEach(producto =>{
-        let articulo = `${producto.cantidad} x *${producto.nombreProducto}* (${producto.categoria}) => $${producto.precio}`;
-        pedido += `\n${articulo}`;
-        cantidadProductos += producto.cantidad;
-        subtotal += producto.cantidad * producto.precio;
-    });
-
-    if(cantidadProductos <= 5){
-        costoEnvio = 1000;
-    }else if(cantidadProductos <= 10){
-        costoEnvio = 2000;
+function comprar(){
+    if(inpNombre.value === ''){
+        alert('Por favor, indique su nombre antes de comprar');
     }else{
-        costoEnvio = 3000;
-    }
+        window.location.href = '/compra';
+    }   
+}
 
-    precioFinal = costoEnvio + subtotal;
-
-    let mensaje=
-    `Hola Todo3D!!\nDesearía pedirles lo siguiente:
-    ${pedido}
-    \n*Cantidad de productos:* ${cantidadProductos}\n*Subtotal:* ${subtotal}\n*Costo del envío:* ${costoEnvio}\n*Total:* ${precioFinal}`;
-
-    fetch('/comprar', {
+function pasarNombreAlBack(){
+    let nombreUsuario = inpNombre.value;
+    fetch(`/pasarNombreAlBack`,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({mensaje})
-    })
-    .then(response => response.json())
-    .then(data => {
-        
-    })
-    .catch(error => {
-        console.error('Error en la solicitud:', error);
-    });
+        body: JSON.stringify({nombreUsuario})
+    }).then(response => response.text())
+    .catch(error => console.error('Error al vaciar el carrito:', error));
 }

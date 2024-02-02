@@ -4,11 +4,13 @@ const pEnvio = document.getElementById('pEnvio');
 const btnAgregarAlCarrito = document.getElementsByClassName('btnAgregarAlCarrito');
 const pNProductosAgregados = document.getElementById('pNProductosCarrito');
 const btnComprar = document.getElementById('btnComprar').addEventListener('click', comprar);
+const inpNombre = document.getElementById('inpNombre');
 
 //agregamos el evento después porque sino perdemos las propiedades del elemento
 btnMenos.addEventListener('click', menos);
 btnMas.addEventListener('click', mas);
 btnAgregarAlCarrito[0].addEventListener('click', agregarAlCarrito);
+inpNombre.addEventListener('keyup', pasarNombreAlBack);
 
 const pCantidad = document.getElementById('pCambiarCantidad');
 
@@ -65,14 +67,21 @@ function agregarAlCarrito(e){
 }
 
 function comprar(){
-    fetch(`/comprarIndividual`,{
+    if(inpNombre.value === ''){
+        alert('Por favor, indique su nombre antes de comprar');
+    }else{
+        window.location.href = `/compraIndividual?q=${pCantidad.textContent}`;
+    }
+}
+
+function pasarNombreAlBack(){
+    let nombreUsuario = inpNombre.value;
+    fetch(`/pasarNombreAlBack`,{
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+            'Content-Type': 'application/json'
         },
-        body: JSON.stringify({cantidad: pCantidad.textContent})
+        body: JSON.stringify({nombreUsuario})
     }).then(response => response.text())
-    .then(data => {
-    })
-    .catch(error => console.error('Error al comprar:', error));
+    .catch(error => console.error('Error al vaciar el carrito:', error));
 }
