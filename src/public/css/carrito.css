@@ -1,13 +1,17 @@
 main{
-    display: grid;
-    align-content: center;
-    grid-template-columns: minmax(60px, 400px) minmax(800px, 1200px) minmax(60px, 400px);
+    /* display: grid; */
+    display: flex;
+    /* align-content: center; */
+    justify-content: center;
+    /* grid-template-columns: minmax(60px, 400px) minmax(800px, 1200px) minmax(60px, 400px); */
+
     margin-top: 130px;
 }
 
 #dvSegundaColumna{
     background-color: #F5F5F5;
-    width: 100%;
+    /* width: 100%; */
+    width: minmax(800px, 1200px);
     height: auto;
 }
 
@@ -179,6 +183,10 @@ main{
     align-self: center;
 }
 
+.pSubCost{
+    margin-right: 5px;
+}
+
 @media (width < 1300px){
     main{
         margin-top: 200px;
@@ -227,3 +235,20 @@ main{
         height: 100px;
     }
 }
+
+
+@media (width < 410px){
+    .dvFila{
+        flex-direction: column;
+    }
+
+    .dvContainerDatos{
+        width: 200px;
+    }
+
+    .dvImg{
+        width: 160px;
+        height: 150px;
+    }
+}
+

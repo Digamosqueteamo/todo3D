@@ -287,3 +287,82 @@ main{
 #dvOpcionEncuentro{
     opacity: 0.7;
 }
+
+@media (width < 1300px){
+    main{
+        margin-top: 200px;
+    }
+    #dvIzquierda{
+        height: 600px;
+    }
+    
+    #dvDerecha{
+        height: 600px;
+    }
+    .imgMetodo{
+        width: 200px;
+    }
+}
+
+@media (width < 1050px){
+    main{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 0.4fr;
+    }
+}
+
+@media (width < 550px){
+    main{
+        padding: 10px;
+    }
+}
+
+@media (width < 500px){
+    main{
+        padding: 10px;
+    }
+
+    #inpDireccion{
+        width: 250px;
+    }
+
+    .dvOpcionIzquierda{
+        width: 330px;
+    }
+
+    #dvIzquierda{
+        width: 360px;
+    }
+    
+    #dvDerecha{
+        background-color: #E5E5E5;
+        opacity: 0.4;
+    }
+
+    .pOpciones{
+        font-size: 20px;
+    }
+
+    .dvSeleccion{
+        width: 50px;
+    }
+
+    #dvOpcionesDerecha{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .inpRadioMetodo{
+        width: 20px;
+        height: 20px;
+        margin-top: 10px;
+    }
+
+    #dvDerecha{
+        height: 650px;
+    }
+
+    .bxl-whatsapp{
+        margin-top: 3px;
+    }
+}

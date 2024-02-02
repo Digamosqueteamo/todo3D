@@ -49,9 +49,11 @@ function continuarIzquierda(){
             dirección = inpDireccion.value;
             deshabilitarIzquierda();
             habilitarDerecha();
+            dvDerecha.scrollIntoView({ behavior: 'smooth' });
         }else{
             deshabilitarIzquierda();
             habilitarDerecha();
+            dvDerecha.scrollIntoView({ behavior: 'smooth' });
         }
     }
 }
@@ -252,6 +254,12 @@ async function confirmarPedidoIndividual(){
 function atrasDerecha(){
     deshabilitarDerecha();
     habilitarIzquierda();
+
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
 }
 
 function deshabilitarIzquierda(){

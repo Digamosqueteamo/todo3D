@@ -112,8 +112,7 @@ router.get('/carrito', async (req, res) =>{
     miRecordset.forEach(producto => {
       producto.cantidad = ObjProductosAgregados[i].cantidad;
       i++;
-    })
-    //console.log(miRecordset)
+    });
 
     res.render('carrito', {miRecordset: miRecordset, status: 0, nombreUsuario: req.cookies.nombreUsuario || ''});
 }
