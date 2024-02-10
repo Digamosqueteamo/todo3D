@@ -115,8 +115,7 @@ router.get('/carrito', async (req, res) =>{
     });
 
     res.render('carrito', {miRecordset: miRecordset, status: 0, nombreUsuario: req.cookies.nombreUsuario || ''});
-}
-catch(e){res.render('carrito', {status: 1});}
+  }catch(e){res.render('carrito', {status: 1, nombreUsuario: req.cookies.nombreUsuario || ''});}
 });
 
 router.get('/todosLosProductos', async (req, res) => {

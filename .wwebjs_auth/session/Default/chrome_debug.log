@@ -1,5 +1,42 @@
-[0202/185151.063:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ambient-light-sensor'.", source:  (0)
-[0202/185151.063:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
-[0202/185151.063:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'gamepad'.", source:  (0)
-[0202/185151.063:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'local-fonts'.", source:  (0)
-[0202/185151.063:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'window-management'.", source:  (0)
+[0202/223447.930:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ambient-light-sensor'.", source:  (0)
+[0202/223447.930:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
+[0202/223447.930:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'gamepad'.", source:  (0)
+[0202/223447.931:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'local-fonts'.", source:  (0)
+[0202/223447.931:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'window-management'.", source:  (0)
+[0203/172943.120:WARNING:dns_config_service_win.cc(509)] Failed to read DnsConfig.
+[0203/172948.137:WARNING:dns_config_service_win.cc(509)] Failed to read DnsConfig.
+[0203/172958.146:WARNING:dns_config_service_win.cc(509)] Failed to read DnsConfig.
+[0203/173011.187:WARNING:dns_config_service_win.cc(509)] Failed to read DnsConfig.
+[0203/173030.867:WARNING:dns_config_service_win.cc(509)] Failed to read DnsConfig.
+[0203/173035.733:WARNING:dns_config_service_win.cc(509)] Failed to read DnsConfig.
+[0203/173043.295:WARNING:dns_config_service_win.cc(509)] Failed to read DnsConfig.
+[0203/204909.005:INFO:CONSOLE(266)] "Failed to parse video contentType: video/mp4; codecs=avc1.42000a", source: https://web.whatsapp.com/app.f048d8d89717819d6c73.js (266)
+[0203/204909.005:INFO:CONSOLE(266)] "Failed to parse video contentType: video/mp4; codecs=hev1.1.6.L93.B0", source: https://web.whatsapp.com/app.f048d8d89717819d6c73.js (266)
+[0203/211814.869:WARNING:dns_config_service_win.cc(509)] Failed to read DnsConfig.
+[0203/211819.883:WARNING:dns_config_service_win.cc(509)] Failed to read DnsConfig.
+[0203/211834.077:WARNING:dns_config_service_win.cc(509)] Failed to read DnsConfig.
+[0203/211853.794:WARNING:dns_config_service_win.cc(509)] Failed to read DnsConfig.
+[0203/211858.842:WARNING:dns_config_service_win.cc(509)] Failed to read DnsConfig.
+[0203/211906.399:WARNING:dns_config_service_win.cc(509)] Failed to read DnsConfig.
+[0203/211907.793:WARNING:dns_config_service_win.cc(509)] Failed to read DnsConfig.
+[0204/204910.111:INFO:CONSOLE(266)] "Failed to parse video contentType: video/mp4; codecs=avc1.42000a", source: https://web.whatsapp.com/app.f048d8d89717819d6c73.js (266)
+[0204/204910.111:INFO:CONSOLE(266)] "Failed to parse video contentType: video/mp4; codecs=hev1.1.6.L93.B0", source: https://web.whatsapp.com/app.f048d8d89717819d6c73.js (266)
+[0205/204911.073:INFO:CONSOLE(266)] "Failed to parse video contentType: video/mp4; codecs=avc1.42000a", source: https://web.whatsapp.com/app.f048d8d89717819d6c73.js (266)
+[0205/204911.074:INFO:CONSOLE(266)] "Failed to parse video contentType: video/mp4; codecs=hev1.1.6.L93.B0", source: https://web.whatsapp.com/app.f048d8d89717819d6c73.js (266)
+[0206/204912.176:INFO:CONSOLE(266)] "Failed to parse video contentType: video/mp4; codecs=avc1.42000a", source: https://web.whatsapp.com/app.f048d8d89717819d6c73.js (266)
+[0206/204912.176:INFO:CONSOLE(266)] "Failed to parse video contentType: video/mp4; codecs=hev1.1.6.L93.B0", source: https://web.whatsapp.com/app.f048d8d89717819d6c73.js (266)
+[0207/131525.532:ERROR:quic_idle_network_detector.cc(102)] SetAlarm called after stopped
+[0207/204914.148:INFO:CONSOLE(266)] "Failed to parse video contentType: video/mp4; codecs=avc1.42000a", source: https://web.whatsapp.com/app.f048d8d89717819d6c73.js (266)
+[0207/204914.148:INFO:CONSOLE(266)] "Failed to parse video contentType: video/mp4; codecs=hev1.1.6.L93.B0", source: https://web.whatsapp.com/app.f048d8d89717819d6c73.js (266)
+[0207/213838.298:ERROR:quic_idle_network_detector.cc(102)] SetAlarm called after stopped
+[0208/121323.930:ERROR:quic_idle_network_detector.cc(102)] SetAlarm called after stopped
+[0208/204914.965:INFO:CONSOLE(266)] "Failed to parse video contentType: video/mp4; codecs=avc1.42000a", source: https://web.whatsapp.com/app.f048d8d89717819d6c73.js (266)
+[0208/204914.965:INFO:CONSOLE(266)] "Failed to parse video contentType: video/mp4; codecs=hev1.1.6.L93.B0", source: https://web.whatsapp.com/app.f048d8d89717819d6c73.js (266)
+[0209/204915.109:INFO:CONSOLE(266)] "Failed to parse video contentType: video/mp4; codecs=avc1.42000a", source: https://web.whatsapp.com/app.f048d8d89717819d6c73.js (266)
+[0209/204915.110:INFO:CONSOLE(266)] "Failed to parse video contentType: video/mp4; codecs=hev1.1.6.L93.B0", source: https://web.whatsapp.com/app.f048d8d89717819d6c73.js (266)
+[0209/230512.793:INFO:CONSOLE(216)] "Dexie: Need to reopen db", source: https://web.whatsapp.com/app.f048d8d89717819d6c73.js (216)
+[0209/230621.030:INFO:CONSOLE(216)] "Dexie: Need to reopen db", source: https://web.whatsapp.com/app.f048d8d89717819d6c73.js (216)
+[0209/231336.410:INFO:CONSOLE(215)] "Dexie: Need to reopen db", source: https://web.whatsapp.com/WAWebWorker.5895b3b4c2fc01d177a4.worker.js (215)
+[0209/231336.447:INFO:CONSOLE(216)] "Dexie: Need to reopen db", source: https://web.whatsapp.com/app.f048d8d89717819d6c73.js (216)
+[0209/231336.658:INFO:CONSOLE(215)] "Dexie: Need to reopen db", source: https://web.whatsapp.com/WAWebWorker.5895b3b4c2fc01d177a4.worker.js (215)
+[0209/231340.466:INFO:CONSOLE(216)] "Dexie: Need to reopen db", source: https://web.whatsapp.com/app.f048d8d89717819d6c73.js (216)

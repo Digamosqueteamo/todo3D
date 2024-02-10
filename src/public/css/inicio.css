@@ -7,6 +7,7 @@ main{
 }
 
 #dvSegundaColumna{
+    background-color: #F5F5F5;
     display: flex;
     flex-direction: column;
 }
@@ -62,11 +63,15 @@ main{
     border-radius: 20px;
     width: 300px;
     height: 370px;
-    background-color: white;
     border: 2px solid rgba(128, 128, 128, 0);
 }
 
 .dvCard:hover{
+    outline-offset: 10px;
+    border: 2px solid rgba(128, 128, 128, 0.281);
+}
+
+.dvCard:active{
     outline-offset: 10px;
     border: 2px solid rgba(128, 128, 128, 0.281);
 }
@@ -97,6 +102,23 @@ main{
     font-weight: 600;
 }
 
+.dvAgregado{
+    position: absolute;
+    left: 250px;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    font-size: 15px;
+    background-color: rgb(179, 255, 138);
+    color: rgb(85, 185, 32);
+    border-radius: 7px;
+    margin-left: 5px;
+    opacity: 0;
+    transition: transform 0.1s ease;
+    
+}
+
 .btnIconCarritoCard{
     border: 0;
     width: 50px;
@@ -115,6 +137,14 @@ main{
 
 .btnIconCarritoCard:hover{
     background-color: rgba(240, 248, 255, 0.734);
+}
+
+.btnIconCarritoCard:active{
+    background-color: rgba(240, 248, 255, 0.734);
+}
+
+.btnIconCarritoCard:active .iIconCarritoCard{
+    opacity: 1;
 }
 
 .btnIconCarritoCard:hover .iIconCarritoCard{

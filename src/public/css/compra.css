@@ -159,6 +159,11 @@ main{
     color: rgb(6, 136, 212);
 }
 
+.btnEnabledIzquierda:active{
+    background-color: white;
+    color: rgb(6, 136, 212);
+}
+
 #dvContinuarAtrasDerecha{
     display: flex;
     justify-content: space-between;
@@ -193,6 +198,11 @@ main{
     color: rgb(6, 136, 212);
 }
 
+.btnAtrasEnabledDerecha:active{
+    background-color: white;
+    color: rgb(6, 136, 212);
+}
+
 .btnContinuarEnabledDerecha{
     background-color: rgb(6, 136, 212);
     padding: 7px 17px;
@@ -219,6 +229,11 @@ main{
 }
 
 .btnContinuarEnabledDerecha:hover{
+    background-color: white;
+    color: rgb(6, 136, 212);
+}
+
+.btnContinuarEnabledDerecha:active{
     background-color: white;
     color: rgb(6, 136, 212);
 }

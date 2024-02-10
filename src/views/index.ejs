@@ -74,7 +74,11 @@
                     <div class="dvCard" id="<%=producto.id%>">
                         <a>
                             <div class="dvImgCard">
-                                <img src="./imgs/imgsProductos/<%=producto.numeroImagen%>.jpg" alt="Producto" class="imgCard">
+                                <img src="<%=producto.imagenURL%>" alt="Producto" class="imgCard">
+                                <div class="dvAgregado" id="<%=producto.id%>dvAgregado">
+                                    <p>Agregado</p>
+                                    <i class='bx bx-check'></i>
+                                </div>
                                 <button class="btnIconCarritoCard" id="<%=producto.id%>">
                                     <i class='bx bx-cart-add iIconCarritoCard'></i>
                                 </button>

@@ -38,6 +38,16 @@ function buscar(e){
 
 function agregarProductosCarrito(e){
     const id= e.currentTarget.id;
+    const dvAgregado = document.getElementById(`${id}dvAgregado`);
+
+    dvAgregado.style.transform = 'translateX(-125%)';
+
+    dvAgregado.style.opacity = 1;
+
+    setTimeout(function() {
+      dvAgregado.style.opacity = 0;
+    }, 700);
+
     e.stopPropagation();
     fetch(`/agregarAlCarrito`,{
         method: 'POST',

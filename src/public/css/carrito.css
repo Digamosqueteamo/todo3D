@@ -59,6 +59,11 @@ main{
     color: rgb(168, 3, 3);
 }
 
+#btnVaciarCarrito:active{
+    background-color: white;
+    color: rgb(168, 3, 3);
+}
+
 .dvFila{
     padding: 10px;
     display: flex;
@@ -146,6 +151,11 @@ main{
 }
 
 #btnComprarEnable:hover{
+    background-color: white;
+    color: red;
+}
+
+#btnComprarEnable:active{
     background-color: white;
     color: red;
 }
