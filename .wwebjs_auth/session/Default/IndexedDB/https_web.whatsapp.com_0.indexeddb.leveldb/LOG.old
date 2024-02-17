@@ -1,2 +1,7 @@
-2024/02/09-23:05:12.798 a8b8 Creating DB C:\Users\User\Documents\Página mates\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb since it was missing.
-2024/02/09-23:05:12.857 a8b8 Reusing MANIFEST C:\Users\User\Documents\Página mates\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/02/17-14:40:54.383 3014 Reusing MANIFEST C:\Users\User\Documents\Página mates\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/02/17-14:40:54.384 3014 Recovering log #1579
+2024/02/17-14:40:54.466 3014 Reusing old log C:\Users\User\Documents\Página mates\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/001579.log 
+2024/02/17-14:40:54.466 3014 Delete type=2 #1586
+2024/02/17-14:40:54.466 3014 Delete type=2 #1587
+2024/02/17-14:40:54.466 3014 Delete type=2 #1588
+2024/02/17-14:40:54.466 3014 Delete type=2 #1589

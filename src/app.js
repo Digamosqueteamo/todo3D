@@ -2,13 +2,12 @@ import express from 'express';
 import {dirname, join} from 'path';
 import {fileURLToPath} from 'url';
 import misRutas from './routes/index.js';
-import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import whatsapp from './lib/whatsapp.js';
+import {PORT} from './config.js';
 
 //variables, constantes y objetos
 const app = express();
-const PORT = process.env.PORT || 3000;
 const __dirname =dirname(fileURLToPath(import.meta.url));
 
 //whatsapp
