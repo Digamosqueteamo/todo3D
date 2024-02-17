@@ -105,7 +105,7 @@ router.get('/carrito', async (req, res) =>{
       i++;
     });
     i = 0;
-    let myQuery = `SELECT * FROM PRODUCTOS where id in (${arrayIds})`;
+    let myQuery = `SELECT * FROM Productos where id in (${arrayIds})`;
     let [miRecordset] = await pool.query(myQuery);
 
     miRecordset.forEach(producto => {
