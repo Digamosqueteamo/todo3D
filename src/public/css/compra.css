@@ -335,6 +335,7 @@ main{
 @media (width < 500px){
     main{
         padding: 10px;
+        justify-items: center;
     }
 
     #inpDireccion{
